@@ -29,9 +29,7 @@ Use this skill when a decision concerns:
 4. Set `status: proposed` and set `date` to the current date in `YYYY-MM-DD` format. Keep all required frontmatter fields, using YAML lists for list-valued fields.
 5. Write the Summary as exactly two sentences: the first states what was decided, and the second states why. Keep each sentence focused on that purpose.
 6. Add related spec paths to the `specs` frontmatter list, using relative paths to files in `docs/specs/`. Link those specs with relative Markdown links when mentioning them in the ADR body. If no related spec exists, leave the list empty.
-7. If the decision replaces an existing ADR, set the new ADR's `supersedes` field to that ADR's relative path and update the existing ADR's `superseded_by` field to this new ADR's relative path. Do not change the existing ADR's decision text or status. If no ADR is being replaced, leave both fields empty on the new ADR.
 7. If the decision replaces an existing ADR, set the new ADR's `supersedes` field to the predecessor's repository-relative path (for example, `docs/adr/0001-example.md`) and update the predecessor's `superseded_by` field to the new ADR's repository-relative path. Do not change the existing ADR's decision text or status. If no ADR is being replaced, leave both fields empty on the new ADR.
-8. Check that the filename and heading use the same ADR number, all placeholders are gone, the summary has exactly two sentences, dates and relative links are valid, and supersession metadata is reciprocal where applicable.
 8. Check that the filename and heading use the same ADR number, all placeholders are gone, the summary has exactly two sentences, dates and relative links are valid, and supersession paths are repository-relative, resolve to the intended ADRs, and are reciprocal where applicable.
 
 ## Completion

@@ -4,6 +4,12 @@ A lightweight Copilot framework for spec driven development.
 
 You write *what* a feature should do in plain words. Copilot turns it into a plan, records architectural decisions, implements it, and opens the PR. Obsidian is the human-facing workspace for specs and ADRs.
 
+## Requirements
+
+- **GitHub Copilot in VS Code** (agent mode). The `.github/` agents, prompts and skills use Copilot's formats and are not portable to other assistants as-is.
+- **Obsidian** for the `docs/` vault. The `board.base` kanban needs the **Bases** core plugin, so use a recent Obsidian version.
+- **Python 3** only if you want to run the docs lint (`scripts/lint_docs.py`); the workflow runs it in CI.
+
 ## How it works
 
 1. **Write a spec.** Create a note from the spec template and fill in only the `Description`.
