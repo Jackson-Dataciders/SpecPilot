@@ -1,0 +1,4 @@
+# Obsidian: per-machine state (open tabs, pane layout, cache)
+docs/.obsidian/
+docs/.trash/
+docs/specs/board.base
