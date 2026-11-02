@@ -21,16 +21,19 @@ instead of guessing, and do not start implementing until it is answered.
 -->
 
 ## Implementation plan
-<!-- Ordered steps. Each step: affected project/file and what changes. Small enough to verify individually. -->
+<!-- Ordered steps. Each step: affected project/file and what changes. Small enough to verify individually. Prefix steps that build UI with [ui]. -->
 
 ## Behavior
 <!-- Concrete behavior derived from the Description: inputs, outputs, edge cases, error cases. -->
+
+## UI
+<!-- Only for user-facing work; remove otherwise. Screens and their states (empty, loading, error), plus any new design rule docs/design.md lacks. -->
 
 ## Out of scope
 <!-- What this spec explicitly does NOT cover, to prevent overbuilding. -->
 
 ## Acceptance criteria
-<!-- Checkable, testable statements. One per line as "- [ ]". Tick them when verified. -->
+<!-- Checkable, testable statements. One per line as "- [ ]". Tick them when verified. For UI, include visual criteria checkable at the targets in docs/design.md. -->
 
 ## Technical notes
 <!-- Affected projects/files, new dependencies, links to relevant ADRs. If a new architectural decision is needed, use the adr-writer skill. -->

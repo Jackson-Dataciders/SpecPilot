@@ -12,3 +12,4 @@ applyTo: "docs/**/*.md"
 - Represent list-valued frontmatter fields as YAML lists.
 - Name spec files `NNN-kebab-title.md` and ADR files `NNNN-kebab-title.md`.
 - Never edit `docs/architecture.md` to reflect a decision except through the `accept-adr` prompt.
+- Create `docs/design.md` from `docs/_templates/design-template.md`. Edit it only through the `frontend-design` skill: with user approval at setup, or to add a rule a planned spec's UI section names. Keep it a flat list of checkable rules.
