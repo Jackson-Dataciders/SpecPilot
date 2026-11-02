@@ -13,10 +13,16 @@ You write *what* a feature should do in plain words. Copilot turns it into a pla
 ## How it works
 
 1. **Write a spec.** Create a note from the spec template and fill in only the `Description`.
-2. **Plan.** Run the `spec-planner` agent on the spec. It fills in behavior, scope, acceptance criteria and the implementation plan, and creates an ADR if a new architectural decision is needed. Answer any `Open questions`.
+2. **Plan.** Ask Copilot to plan the spec; it uses the `spec-planner` skill. It fills in behavior, UI, scope, acceptance criteria and the implementation plan, and creates an ADR if a new architectural decision is needed. Answer any `Open questions`.
 3. **Accept decisions.** Review proposed ADRs, then run the `accept-adr` prompt to record them in `docs/architecture.md`.
-4. **Implement.** Use the `Implement spec` handoff (or the `spec-implementer` skill) on a spec with status `planned`.
-5. **Publish.** Run the `pull-request` prompt. It asks for approval before committing, pushing and creating the PR.
+4. **Implement.** Select the `spec-implementer` agent and give it a spec with status `planned`. Logic and backend steps get the smallest working solution; UI steps follow the `frontend-design` skill and `docs/design.md`.
+5. **Publish.** Run the `pull-request` prompt yourself. It asks for approval before committing, pushing and creating the PR.
+
+Before the first UI spec, set up the design rules: ask Copilot to run the `frontend-design` skill with `setup`. It creates `docs/design.md` from pre-written default rules, adjusts them to your product and asks you to approve. Add rules later as specs need them.
+
+### Quality bar
+
+Scope is always minimal: build only what the spec asks for. Finish is not: UI work meets `docs/design.md` and includes the always-allowed polish (empty, loading and error states, interaction states, keyboard and accessibility, layout at every target) listed in the `frontend-design` skill.
 
 Spec status moves through `backlog` → `ready` → `planned` → `in-progress` → `done`.
 
@@ -29,6 +35,7 @@ Spec status moves through `backlog` → `ready` → `planned` → `in-progress` 
 | `docs/adr/` | Architecture Decision Records (`NNNN-kebab-title.md`) |
 | `docs/_templates/` | Spec and ADR templates |
 | `docs/architecture.md` | Current, binding architecture |
+| `docs/design.md` | Binding design rules for UI work (started from default rules, extended per spec) |
 | `.github/` | Copilot instructions, agents, prompts and skills |
 
 ## Setup
@@ -64,7 +71,7 @@ These are the defaults this framework assumes. Check them under **Settings**.
 
 ### 5. Copilot
 
-Use GitHub Copilot in VS Code with agent mode, with the repository open at its root so `.github/` is picked up. Select the `spec-planner` agent and give it the spec path.
+Use GitHub Copilot in VS Code with agent mode, with the repository open at its root so `.github/` is picked up. To plan, ask Copilot to plan the spec path (the `spec-planner` skill). To implement, select the `spec-implementer` agent and give it the spec path.
 
 ## Ground rules
 
